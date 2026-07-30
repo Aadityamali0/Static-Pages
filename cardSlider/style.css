@@ -5,30 +5,38 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
-body{
+/* body{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* min-height: 100vh; */
-    /* background: linear-gradient(#ECEFFE, #CED6FB); */
+    min-height: 100vh;
+    background: linear-gradient(#ECEFFE, #CED6FB);
     background: #ECEFFE;
+} */
+body{
+    background: linear-gradient(#ECEFFE, #CED6FB);
 }
 .card-list .card-item .card-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     user-select: none;
-    display: block;
+    /* display: block; */
     background: #fff;
     padding: 10px;
     margin: 5px;
     border-radius: 12px;
     text-decoration: none;
     border: 2px solid transparent;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-    transition: 0.2s ease;
+    position: relative;
+    /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease; */
 }
-
-.card-list .card-item .card-link:hover{
+/* .card-list .card-item .card-link:hover{
+    gotta put tansition into card later
     border-color: blue;
-}
+} */
 .card-list .card-link .card-image{
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -40,7 +48,7 @@ body{
     padding: 8px 16px;
     font-size: 15px;
     font-weight: 500;
-    margin: 13px 0 13px;
+    margin: 13px auto;
     background: #DDE4FF;
     width: fit-content;
     border-radius: 50px;
@@ -71,21 +79,39 @@ body{
     font-weight: 600;
 }
 .card-list .card-link .card-button{
+    display: block;
     height: 35px;
-    width: 35px;
-    color: #000080;
-    border-radius: 50%;
+    width: fit-content;
+    display: block;
+    color: white;
     margin: 13px 0 5px;
+    padding: 5px 25px;
     background: none;
     cursor: pointer;
-    border: 2px solid #000080;
-    transform: rotate(-45deg);
-    transition: 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    /* transform: scale(0.8); */
+    transition: all .35s ease;
 }
-
 .card-list .card-link:hover .card-button{
-    color: #fff;
-    background: #000080;
+    opacity: 1;
+    transform: translateY(0);
+    background: #e63946;
+}
+.card-list .card-link .card-button:hover{
+    background-color: black;
+}
+.swiper-button-prev,
+.swiper-button-next{
+    width: 28px;
+    height: 28px;
+    color: white;
+    background-color: #f25d3b;
+    border-radius: 50%;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after{
+    font-size: 12px;
 }
 @media (max-width: 768px) {
 
@@ -93,6 +119,13 @@ body{
     .card-list .card-link .card-button,
     .card-list .card-link .card-title,
     .card-list .card-link .badge {
+        display: none;
+    }
+    .card-list .card-item .card-link{
+        padding: 2px;
+    }
+    .swiper-button-prev,
+    .swiper-button-next{
         display: none;
     }
 }

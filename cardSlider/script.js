@@ -1,5 +1,5 @@
 new Swiper('.card-wrapper', {
-  loop: true,
+  // loop: true,
 
   // If we need pagination
 //   pagination: {
@@ -13,7 +13,7 @@ new Swiper('.card-wrapper', {
   },
   breakpoints: {
     0: {
-        slidesPerView: 3
+        slidesPerView: 3.2
     },
     768: {
         slidesPerView: 3.5
