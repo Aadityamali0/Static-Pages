@@ -219,17 +219,13 @@ form{
   animation: driftDiagonal 9s ease-in-out infinite;
 }
 
+/* each tile is a landscape image, gently bent in 3D.
+   Box size/shape comes from the grid — untouched below. */
 .cover{
+  position:relative;
+  overflow:hidden;
   border-radius: 12px;
-  display:flex;
-  align-items:flex-end;
-  padding: 12px 14px;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.85);
-  filter: saturate(1.05) brightness(0.85);
+  filter: saturate(1.05) brightness(0.9);
   box-shadow: 0 16px 30px -16px rgba(0,0,0,0.55);
   transform: perspective(900px) rotateY(-6deg) rotateX(1deg);
   transform-style: preserve-3d;
@@ -241,15 +237,29 @@ form{
   transform: perspective(900px) rotateY(-3deg) rotateX(2deg);
 }
 
-.cover-1{ background: linear-gradient(150deg, #3a1c6e, #171029); }
-.cover-2{ background: linear-gradient(150deg, #5b2a86, #1c1233); }
-.cover-3{ background: linear-gradient(150deg, #24164a, #6d2ea1); }
-.cover-4{ background: linear-gradient(150deg, #7c2ea8, #201333); }
-.cover-5{ background: linear-gradient(150deg, #2a1750, #4b2a86); }
-.cover-6{ background: linear-gradient(150deg, #1c1233, #8a3fc0); }
-.cover-7{ background: linear-gradient(150deg, #331a5c, #201333); }
-.cover-8{ background: linear-gradient(150deg, #4b2a86, #171029); }
-.cover-9{ background: linear-gradient(150deg, #6d2ea1, #1c1233); }
+/* the image fills the box completely and sits slightly zoomed in */
+.cover img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+}
+
+/* readable label on top of the photo */
+.cover span{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding: 12px 14px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.9);
+  background: linear-gradient(0deg, rgba(0,0,0,0.65), rgba(0,0,0,0));
+}
 
 .fog-overlay{
   position:absolute;
